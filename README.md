@@ -174,7 +174,7 @@ Behavioral testbench used for functional verification and simulation.
 <h2>RTL Architecture</h2>
 
 <div align="center">
-  <img src="images/rtl_design.png" alt="RTL Architecture">
+  <img src="images/rtl_design.jpeg" alt="RTL Architecture">
 </div>
 
 <hr>
