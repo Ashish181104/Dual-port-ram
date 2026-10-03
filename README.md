@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="images/DPR.png" alt="Banner">
+  <img src="images/DPRP.png" alt="Banner">
 </div>
 
 <div align="center">
@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/Language-Verilog-blue" alt="Verilog">
   <img src="https://img.shields.io/badge/Tool-Vivado-orange" alt="Vivado">
   <img src="https://img.shields.io/badge/Target-FPGA-green" alt="FPGA">
-  <img src="https://img.shields.io/badge/Design-CDC_Safe-red" alt="CDC Safe">
+  <img src="https://img.shields.io/badge/Design-Synchronizer-red" alt="Synchronizer">
   <img src="https://img.shields.io/badge/License-MIT-yellow" alt="License">
 
 </div>
@@ -25,7 +25,7 @@ True Dual Port RAM subsystem for FPGA-based systems.
 This project was built to understand how real-world memory architectures work
 inside modern digital systems and FPGA designs. Along with the RAM itself,
 the design also explores important concepts used in industry such as
-Clock Domain Crossing (CDC), handshake-based communication,
+synchronizer circuits, handshake-based communication,
 collision handling, and BRAM-friendly RTL coding.
 </p>
 
@@ -70,7 +70,7 @@ are designed step by step.
   <li>True Dual Port RAM architecture</li>
   <li>Independent read/write ports</li>
   <li>Asynchronous clock support</li>
-  <li>CDC-safe synchronizers</li>
+  <li>Synchronizer circuits</li>
   <li>VALID/READY handshake interface</li>
   <li>Collision detection logic</li>
   <li>Vivado-compatible BRAM inference</li>
@@ -89,7 +89,7 @@ are designed step by step.
   <li>Single-port vs dual-port RAM</li>
   <li>True dual-port RAM operation</li>
   <li>FPGA BRAM architecture</li>
-  <li>Clock Domain Crossing (CDC)</li>
+  <li>Synchronizer circuits</li>
   <li>Metastability</li>
   <li>Two-flop synchronizers</li>
   <li>Industrial RTL design methodology</li>
@@ -109,7 +109,7 @@ True_Dual_Port_RAM/
 │   ├── handshake_interface.v
 │   ├── trueDP_ram.v
 │   ├── collision_detector.v
-│   └── cdc_synchronizer.v
+│   └── synchronizer.v
 │
 ├── tb/
 │   └── tb_DP_ram_top.v
@@ -126,34 +126,40 @@ True_Dual_Port_RAM/
 <h2>Module Description</h2>
 
 <h3><code>DP_ram_top.v</code></h3>
+
 <p>
 Top-level module integrating all memory subsystem components together.
 </p>
 
 <h3><code>trueDP_ram.v</code></h3>
+
 <p>
 Core RAM module supporting simultaneous dual-port access.
 </p>
 
 <h3><code>handshake_interface.v</code></h3>
+
 <p>
 Implements a simple VALID/READY handshake interface
 for reliable communication between the input logic and memory subsystem.
 </p>
 
 <h3><code>collision_detector.v</code></h3>
+
 <p>
 Detects simultaneous access conflicts when both ports
 target the same memory location.
 </p>
 
-<h3><code>cdc_synchronizer.v</code></h3>
+<h3><code>synchronizer.v</code></h3>
+
 <p>
 Implements two-flop synchronizers for safer signal transfer
-across clock domains.
+between independent clock domains.
 </p>
 
 <h3><code>tb_DP_ram_top.v</code></h3>
+
 <p>
 Behavioral testbench used for functional verification and simulation.
 </p>
@@ -231,15 +237,15 @@ While building this project, I explored:
 
 <ul>
   <li>How FPGA memories are modeled in Verilog</li>
-  <li>How asynchronous clock domains create challenges</li>
-  <li>Why CDC handling is important</li>
+  <li>How independent clock domains create design challenges</li>
+  <li>Why synchronizer circuits are important</li>
   <li>How dual-port architectures improve parallelism</li>
   <li>How modular RTL design is used in industry</li>
 </ul>
 
 <p>
 This project also helped me better understand how larger systems such as
-FIFOs, AXI-based subsystems, and memory controllers are built internally.
+FIFOs, memory controllers, and high-speed interfaces are built internally.
 </p>
 
 <hr>
