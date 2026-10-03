@@ -2,7 +2,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 // College: MNNIT Allahabad
 // Ashish Kumar Kashyap
-
+//
 // Create Date: 23.05.2026
 // Design Name: Industrial RAM Subsystem
 // Module Name: industrial_ram_top
@@ -12,10 +12,10 @@
 // Description:
 //
 // Top module integrating:
-// - handshake -style interface
+// - handshake-style interface
 // - True dual-port RAM
 // - Collision detector
-// - CDC synchronizers
+// - Synchronizer circuits
 //
 // Revision:
 // Revision 0.01 - File Created
@@ -116,15 +116,15 @@ collision_detector #(
 );
 
 
-// CDC synchronizers
-cdc_synchronizer sync_collision_a (
+// Synchronizer circuits
+synchronizer sync_collision_a (
     .clk(clk_a),
     .rst(rst_a),
     .async_signal(collision_raw),
     .sync_signal(collision_sync_a)
 );
 
-cdc_synchronizer sync_collision_b (
+synchronizer sync_collision_b (
     .clk(clk_b),
     .rst(rst_b),
     .async_signal(collision_raw),
